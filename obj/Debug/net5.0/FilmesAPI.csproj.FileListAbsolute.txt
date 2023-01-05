@@ -1,0 +1,7 @@
+/Users/kauanvallesantos/Projects/FilmesAPI/FilmesAPI/obj/Debug/net5.0/FilmesAPI.csproj.AssemblyReference.cache
+/Users/kauanvallesantos/Projects/FilmesAPI/FilmesAPI/obj/Debug/net5.0/FilmesAPI.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kauanvallesantos/Projects/FilmesAPI/FilmesAPI/obj/Debug/net5.0/FilmesAPI.AssemblyInfoInputs.cache
+/Users/kauanvallesantos/Projects/FilmesAPI/FilmesAPI/obj/Debug/net5.0/FilmesAPI.AssemblyInfo.cs
+/Users/kauanvallesantos/Projects/FilmesAPI/FilmesAPI/obj/Debug/net5.0/FilmesAPI.csproj.CoreCompileInputs.cache
+/Users/kauanvallesantos/Projects/FilmesAPI/FilmesAPI/obj/Debug/net5.0/FilmesAPI.MvcApplicationPartsAssemblyInfo.cs
+/Users/kauanvallesantos/Projects/FilmesAPI/FilmesAPI/obj/Debug/net5.0/FilmesAPI.MvcApplicationPartsAssemblyInfo.cache
