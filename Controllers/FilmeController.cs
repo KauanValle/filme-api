@@ -12,8 +12,8 @@ namespace FilmesAPI.Controllers
 	[Route("[controller]")]
 	public class FilmeController : ControllerBase
 	{
-		private FilmeContext _context;
-		private IMapper _mapper;
+        private readonly FilmeContext _context;
+		private readonly IMapper _mapper;
 
 		private readonly IFilmeService _filmeService;
 
@@ -37,7 +37,7 @@ namespace FilmesAPI.Controllers
 
 			_context.Filmes.Add(filme);
 			_context.SaveChanges();
-			
+
 			// Passa o nome da action, valor da rota no caso {id}, vai retornar o filme no response
 			return CreatedAtAction(nameof(RecuperaFilmePorId), new { Id = filme.id }, filme);
 		}
@@ -52,7 +52,7 @@ namespace FilmesAPI.Controllers
 		[HttpGet("get/{id}")]
 		public IActionResult RecuperaFilmePorId(int id)
 		{
-			Filme filme = _context.Filmes.FirstOrDefault(filme => filme.id == id);
+			Filme? filme = _context.Filmes.FirstOrDefault(filme => filme.id == id);
 			if(filme != null)
 			{
 				ReadFilmeDto filmeDto = _mapper.Map<ReadFilmeDto>(filme);
@@ -66,7 +66,7 @@ namespace FilmesAPI.Controllers
 		[HttpPut("atualizar/{id}")]
 		public IActionResult AtualizaFilmePorId(int id,[FromBody] UpdateFilmeDto filmeDto)
 		{
-			Filme filmeAntigo = _context.Filmes.FirstOrDefault(filme => filme.id == id);
+			Filme? filmeAntigo = _context.Filmes.FirstOrDefault(filme => filme.id == id);
 
 			if(filmeAntigo != null)
 			{
@@ -82,7 +82,7 @@ namespace FilmesAPI.Controllers
 		[HttpDelete("deletar/{id}")]
 		public IActionResult DeletaFilme(int id)
 		{
-			Filme filme = _context.Filmes.FirstOrDefault(filme => filme.id == id);
+			Filme? filme = _context.Filmes.FirstOrDefault(filme => filme.id == id);
 			if(filme != null)
 			{
 				_context.Remove(filme);

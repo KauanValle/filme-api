@@ -25,7 +25,8 @@ namespace FilmesAPI
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore
             };
 
-            services.AddDbContext<FilmeContext>(opts => opts.UseMySQL(_configuration.GetConnectionString("FilmeConnection")));
+            services.AddDbContext<FilmeContext>(opts => opts.UseLazyLoadingProxies().UseMySQL(_configuration.GetConnectionString("FilmeConnection")));
+
 
             JsonConvert.DefaultSettings = () => jsonSettings;
 
