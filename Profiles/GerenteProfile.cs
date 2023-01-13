@@ -13,7 +13,10 @@ namespace FilmesAPI.Profiles
         public GerenteProfile()
         {
             CreateMap<CreateGerenteDto, Gerente>();
-            CreateMap<Gerente, ReadGerenteDto>();
+            CreateMap<Gerente, ReadGerenteDto>() // No readGerenteDto
+                .ForMember(gerente => gerente.Cinemas, opts => opts // Para o objeto Cinemas
+                .MapFrom(gerente => gerente.Cinemas.Select // Quero que ele selecione apenas
+                (c => new { c.Id, c.Nome, c.Endereco, c.EnderecoId }))); // O campo ID / NOME / ENDERECO / ENDERECO.ID
         }
     }
 }

@@ -23,17 +23,19 @@ namespace FilmesAPI.Controllers
             _mapper = mapper;
         }
 
+        [HttpPost("adicionar")]
         public IActionResult AdicionarGerente([FromBody] CreateGerenteDto gerenteDto)
         {
             Gerente gerente = _mapper.Map<Gerente>(gerenteDto);
-            _context.Gerentes.Add(gerente);
+            _context.Gerente.Add(gerente);
             _context.SaveChanges();
             return CreatedAtAction(nameof(ProcuraGerentePorId), new { Id = gerente.Id}, gerente);
         }
 
+        [HttpGet("get/{id}")]
         public IActionResult ProcuraGerentePorId(int id)
         {
-            Gerente? gerente = _context.Gerentes.FirstOrDefault(gerente => gerente.Id == id);
+            Gerente? gerente = _context.Gerente.FirstOrDefault(gerente => gerente.Id == id);
             if(gerente != null)
             {
                 ReadGerenteDto gerenteDto = _mapper.Map<ReadGerenteDto>(gerente);
